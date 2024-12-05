@@ -3,8 +3,7 @@ function consolelogger() {
     apicall()
         .then(data => access_token = data.access_token)
         .then(() => console.log(access_token))
-        .then(()=>apiverify(Response))
-        .then(()=>apimessage(Response))
+        
            
 
 }
@@ -52,7 +51,7 @@ async function apiverify() {
         console.log('token utilizado',access_token)
         const data = await fetch('https://login-practice-125p.onrender.com/auth/verify-user', {
             method:'GET',
-            headers: JSON.stringify ({
+            headers:  ({
                 
                 'Authorization': `Bearer ${access_token}`
             })
