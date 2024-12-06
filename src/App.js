@@ -10,10 +10,10 @@ function App() {
         <div className="App-titulosimg">
 
               <div className='App-contenedor'>
-                <h1 className='mainlabelwelc'>Welcome again</h1>
+                <h3 className='mainlabels'>Welcome again</h3>
                 <img src={icon} className='icono' width="100" height="100">
                 </img>
-                <h3 > login </h3>
+                <h3 className='mainlabels'> login </h3>
               </div>
 
               <div className='App-inputs'>

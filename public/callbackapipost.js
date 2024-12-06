@@ -56,8 +56,9 @@ async function apiverify() {
                 'Authorization': `Bearer ${access_token}`
             })
         });
-        console.log(data, 'ok');
         return data.json;
+       
+        
         
         
 

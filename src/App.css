@@ -8,10 +8,16 @@
   display: flex;
   flex-direction: column;
   
-  align-items: center;
-  min-height: 100vh; /* Esto asegura que tome toda la altura de la ventana */
+  
+  min-height: 100vh;
+  /* Esto asegura que tome toda la altura de la ventana */
   padding: 20px;
+  align-items: center;
+  
   box-sizing: border-box;
+  font-family: 'MuseoModerno', cursive;
+    
+  
   
 }
 
@@ -30,14 +36,14 @@
 
 
 .App-contenedor{
- margin-top: 5%;
+ margin-top: 1%;
 
   }
 
 
 .App-titulosimg{
 background-image: url(C:\Users\PC\Downloads\8a9f2adb9b92e59c0d47bf7733a08f57.jpeg);
-border-radius: 25px;
+border-radius: 15px;
 background-size: contain;
 background-repeat: no-repeat; 
 display: flex;
@@ -59,37 +65,36 @@ height:500px ;
   height: 200px;
   width:300px ;
   
-  margin-top: 10px;
-  border-radius: 20px;
+  margin-top: -15px;
+  
   justify-content: center;
   
   
   }
   .input{
-    border-radius: 25px;
+    border-radius:15px;
+    margin: 1x 0;
 
 
   }
 
-  .mainlabelwelc{
+  .mainlabels{
     margin-top: 3px;
-    margin-bottom: 10px;
-    font-size: 30pt;
+    
+    font-size: 24pt;
     color: white;
+    font-weight: 300;  /* Light */
+    font-size: 35px;
   }
 
  
- .todo {
-    font-family:Arial, Helvetica, sans-serif;
-   
-  }
 
   .sizelabel{
     font-size: 25px;
   }
 
   .icono{
-    margin-top: 3px;
+    margin-top: -35px;
 
   }
 .App-link {
