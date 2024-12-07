@@ -95,6 +95,8 @@ height:500px ;
 
   .icono{
     margin-top: -35px;
+ 
+
 
   }
 .App-link {
@@ -131,5 +133,26 @@ button:hover{
   background-color: #4ff95a; ;
   
 }
+@media (max-width:320px) {
 
+  
+  .todo{
+    display: grid;
+        grid-template-columns: 2fr 1fr;
+        column-gap: 4rem;
+  
+  min-height: 100vh;
+  /* Esto asegura que tome toda la altura de la ventana */
+ 
+  align-items: baseline;
+  justify-content: left;
+  box-sizing: border-box;
+  font-family: 'MuseoModerno', cursive;
+    
+  }
+  .mainlabels{
+
+    color: #4ff95a;
+  }
+}
 
