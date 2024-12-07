@@ -17,22 +17,13 @@
   box-sizing: border-box;
   font-family: 'MuseoModerno', cursive;
     
+  width: 100%;
+  /* O el ancho máximo que prefieras */
   
-  
 }
 
 
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
 
 
 .App-contenedor{
@@ -44,13 +35,14 @@
 .App-titulosimg{
 background-image: url(C:\Users\PC\Downloads\8a9f2adb9b92e59c0d47bf7733a08f57.jpeg);
 border-radius: 15px;
-background-size: contain;
+background-size: cover;
+background-position: center;
 background-repeat: no-repeat; 
 display: flex;
 flex-direction: column;
 align-items:center;
 
-width: 400px ;
+width: 100%;
 height:500px ;
 
 }
@@ -137,22 +129,54 @@ button:hover{
 
   
   .todo{
-    display: grid;
-        grid-template-columns: 2fr 1fr;
-        column-gap: 4rem;
+    display: flex;
+        flex-direction: column;
   
   min-height: 100vh;
   /* Esto asegura que tome toda la altura de la ventana */
+ width: 100% ;
+ padding: 5px;
  
-  align-items: baseline;
-  justify-content: left;
+  
+ align-items: center;
   box-sizing: border-box;
   font-family: 'MuseoModerno', cursive;
     
   }
+.App-inputs{
+  width: 100%;
+  background-color: #4ff95a;
+  box-sizing: border-box;
+}
+  .input{
+    width: 100% ;
+    
+  }
+  .App-titulosimg{
+    background-image: url(C:\Users\PC\Downloads\8a9f2adb9b92e59c0d47bf7733a08f57.jpeg);
+    border-radius: 15px;
+    background-size: contain;
+    background-repeat: no-repeat; 
+    display: flex;
+    flex-direction: column;
+    align-items:baseline;
+    align-content: baseline;
+    
+    width: 400px ;
+    height:500px ;
+    
+    }
+
   .mainlabels{
 
     color: #4ff95a;
+    align-items: center;
+  }
+  .App-contenedor{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
   }
 }
 
