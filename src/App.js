@@ -3,54 +3,57 @@ import './App.css';
 
 import icono from './icono.png'
 import React, { useState } from 'react';
-
-
-
-let access_token;
 function App() {
   
- 
+ //declaro estado
+const [accessToken,setAccessToken]=useState('');
 
   //Función que captura y maneja las inputs del usuario
 
   const [eemail, setEemail] = useState('');
   const [passwordd, setPasswordd] = useState('');
 
-
+  //
   const handleChangeemail = (e) => {
     setEemail(e.target.value);
-
   }
   const handleChangepasswordd = (e) => {
     setPasswordd(e.target.value);
-
   }
 
 
-
-
- const handleSubmit = async (e) => {
+  const handleSubmit = async (e) => {
   e.preventDefault(); 
+
 
       try {
         const data = await apicall(eemail, passwordd);
+
         if (data.access_token) {
-          access_token = data.access_token;
-          alert(`Token obtenido: ${access_token}`);
-          const responseverify = await apiverify();
+
+          //setear access token
+            setAccessToken(data.access_token)
+
             
+         
+          alert(`Token obtenido: ${accessToken}`);
+          
+          const responseverify = await apiverify();
+          
+
+
+
          if(responseverify){
           //aqui redirige a pagina cuando ok con la respuesta ---pendiente--
-          alert(`verificación: ${access_token}`)
-
-
+          alert(`verificación: ${accessToken}`)
+        }
         }
 
 
-        }else{
+        
+        else{
           alert(`Invalid credentials`);
         }
-
        
       }
       catch (error) {
@@ -58,10 +61,9 @@ function App() {
 
       }
 
-     
-
-    
   }
+
+ 
 
   //Funcion llamada a API para obtener token
   async function apicall(eemail, passwordd) {
@@ -79,31 +81,26 @@ function App() {
           email: eemail,
           password: passwordd })
       });
-
-      
       const jsonData = await data.json(); // Aquí convertimos la respuesta a JSON
         console.log('Respuesta del servidor:', jsonData); // Para debug
       
       return jsonData;
     }
-
         catch (error) {
         return error,
         console.log("bad", error);
     }
   }
-
-
   //Función que verifica en base al token
   async function apiverify() {
 
     try {
-      console.log('token utilizado', access_token)
+      console.log('token utilizado', accessToken)
       const data = await fetch('https://login-practice-125p.onrender.com/auth/verify-user', {
         method: 'GET',
         headers: ({
 
-          'Authorization': `Bearer ${access_token}`
+          'Authorization': `Bearer ${accessToken}`
         })
       });
       return data.json();

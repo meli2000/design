@@ -1,23 +1,20 @@
-.App {
-  text-align: center;
-   
-}
 
 .todo{
   
-  display: flex;
-  flex-direction: column;
-  
-  
-  min-height: 100vh;
+
   /* Esto asegura que tome toda la altura de la ventana */
-  padding: 20px;
+  
   align-items: center;
   
-  box-sizing: border-box;
+  box-sizing: content-box;
   font-family: 'MuseoModerno', cursive;
     
-  width: 100%;
+  width: 600px;
+  height: 600px;
+  margin: 0 auto; /* Centra horizontalmente */
+  /* O también puedes escribirlo como: */
+  margin-left: auto;
+  margin-right: auto;
   /* O el ancho máximo que prefieras */
   
 }
@@ -28,6 +25,11 @@
 
 .App-contenedor{
  margin-top: 1%;
+
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+
 
   }
 
@@ -44,6 +46,8 @@ align-items:center;
 
 width: 100%;
 height:500px ;
+border-color: red;
+padding: 10px;
 
 }
 
@@ -54,8 +58,8 @@ height:500px ;
   display: flex;
   flex-direction: column;
   align-items:center;
-  height: 200px;
-  width:300px ;
+  height: 250px;
+  width:480px ;
   
   margin-top: -15px;
   
@@ -66,6 +70,8 @@ height:500px ;
   .input{
     border-radius:15px;
     margin: 1x 0;
+    width: 75%;
+    height: 40%;
 
 
   }
@@ -73,7 +79,8 @@ height:500px ;
   .mainlabels{
     margin-top: 3px;
     
-    font-size: 24pt;
+   
+    
     color: white;
     font-weight: 300;  /* Light */
     font-size: 35px;
@@ -87,6 +94,7 @@ height:500px ;
 
   .icono{
     margin-top: -35px;
+   
  
 
 
@@ -102,11 +110,15 @@ height:500px ;
   margin-top: 5px;
   flex-direction: column;
   display: flex;
+  width:100%;
   
 }
 
 label{
 margin-bottom: 10px;
+align-self: flex-start;
+padding:5px;
+padding-left: 5%;
 
 }
 
@@ -125,57 +137,78 @@ button:hover{
   background-color: #4ff95a; ;
   
 }
-@media (max-width:320px) {
 
-  
+
+@media (max-width:375px) {
+
+  .App{
+    padding: 20px;
+  }
   .todo{
     display: flex;
-        flex-direction: column;
+    flex-direction: column;
   
-  min-height: 100vh;
+  
   /* Esto asegura que tome toda la altura de la ventana */
  width: 100% ;
- padding: 5px;
+ height: 100%;
+ 
+ 
+ border-radius: 15px;
  
   
  align-items: center;
   box-sizing: border-box;
   font-family: 'MuseoModerno', cursive;
+  
+  margin: 0 auto; /* Centra horizontalmente */
+  /* O también puedes escribirlo como: */
+  margin-left: auto;
+  margin-right: auto;
     
   }
 .App-inputs{
   width: 100%;
-  background-color: #4ff95a;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.300);
   box-sizing: border-box;
 }
   .input{
-    width: 100% ;
+    width: 85% ;
+    height: 25px;
     
   }
   .App-titulosimg{
     background-image: url(C:\Users\PC\Downloads\8a9f2adb9b92e59c0d47bf7733a08f57.jpeg);
     border-radius: 15px;
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat; 
     display: flex;
     flex-direction: column;
-    align-items:baseline;
-    align-content: baseline;
+    align-items:center;
+   
+  
     
-    width: 400px ;
-    height:500px ;
+    width: 100% ;
+    height:100% ;
     
     }
 
+
   .mainlabels{
 
-    color: #4ff95a;
+    color: #ffffff;
     align-items: center;
+    width: 100%;
+    justify-content: center;
+    display: flex;
+    text-align: center;
   }
   .App-contenedor{
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 
   }
 }
