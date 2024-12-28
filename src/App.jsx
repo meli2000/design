@@ -1,13 +1,15 @@
 import logo from './logo.svg';
 import './App.css';
 import { useNavigate } from 'react-router-dom';
+import Home from './Home';
+import { Routes , Route} from 'react-router-dom';
 import icono from './icono.png'
 import React, { useState } from 'react';
 function App() {
 
   //declaro estado
   const [accessToken, setAccessToken] = useState('');
-  const token = localStorage.getItem('accessToken');
+  //const token = localStorage.getItem('accessToken');
   //Función que captura y maneja las inputs del usuario
 
   const [eemail, setEemail] = useState('');
@@ -21,22 +23,14 @@ function App() {
   const handleChangepasswordd = (e) => {
     setPasswordd(e.target.value);
   }
-
-
   const handleLogOut = async (e) => {
     try {
-      
       const ok = await apilogout();
-      if (ok) {
-        alert(`LOGGED OUT ${accessToken}`)
-      }
+          if (ok) {
+            alert(`LOGGED OUT ${accessToken}`)
+          }
 
-    } catch (error) {
-
-    }
-
-
-
+    } catch (error) {    }
   }
 
   const handleSubmit = async (e) => {
@@ -46,27 +40,14 @@ function App() {
 
     try {
       localStorage.clear();
-      const data = await apicall(eemail, passwordd);
-
-      if (data.access_token) {
-
+      const jsonData = await apicall(eemail, passwordd);
+      if (jsonData.access_token) {
         //setear access token
-        setAccessToken(data.accessToken)
-
-
-
-        alert(`Token obtenido: ${accessToken}`);
-
-        const responseverify = await apiverify();
-        if (responseverify) {
-          //aqui redirige a pagina cuando ok con la respuesta ---pendiente--
-          alert(`verificación: ${accessToken}`)
-          navigate('/oklogin.js');
-          
-        }
+        setAccessToken(jsonData.access_token)
+        
+        navigate('/home')
+        
       }
-
-
 
       else {
         alert(`Invalid credentials`);
@@ -79,8 +60,6 @@ function App() {
     }
 
   }
-
-
 
   //Funcion llamada a API para obtener token
   async function apicall(eemail, passwordd) {
@@ -103,7 +82,6 @@ function App() {
       console.log('Respuesta del servidor:', jsonData.access_token); // Para debug
 
       
-        localStorage.setItem('accessToken', jsonData.access_token);
         
 
       return jsonData;
@@ -124,7 +102,7 @@ function App() {
         method: 'GET',
         headers: ({
 
-          'Authorization': `Bearer ${token}`
+          'Authorization': `Bearer ${accessToken}`
         })
       });
       const jsonData = await data.json(); // Aquí convertimos la respuesta a JSON
@@ -144,7 +122,7 @@ function App() {
       const data = await fetch('https://login-practice-125p.onrender.com/auth/logout', {
         
         headers: ({
-          'Authorization': `Bearer ${token}`
+          'Authorization': `Bearer ${accessToken}`
         })
       });
      
@@ -158,6 +136,10 @@ function App() {
   }
 
   return (
+    <Routes>
+      <Route path='/' element={
+
+      
     <div className="App">
 
       <div className='todo'>
@@ -168,7 +150,7 @@ function App() {
 
            
 
-            <label className='label'> login </label>
+            <label className='label'> Welcome </label>
           </div>
 
           <div className='App-inputs'>
@@ -176,12 +158,12 @@ function App() {
             <form className='form'   >
               <label>Enter credentials</label>
               <label>E-mail</label>
-              <input type='email' className='input' id='eemail' autoComplete='username' onChange={handleChangeemail} required />
+              <input type='email' placeholder='Enter your email' className='input' id='eemail' autoComplete='username' onChange={handleChangeemail} required />
               <label>Password</label>
               <input type='password' className='input' id='passwordd' autoComplete='current-password' onChange={handleChangepasswordd} required />
               
-              <button type='submit' onClick={handleSubmit} >Enter</button> 
-              
+             
+              <button type='submit' onClick={handleSubmit}>ENTRARR</button>
             </form>
            
           </div>
@@ -191,8 +173,10 @@ function App() {
         <div className='fondo'></div>
       </div>
     </div>
-    
-
+    } />
+    <Route path="/home" element={<Home token={accessToken} />} />
+  </Routes>
+  
   );
 
 
